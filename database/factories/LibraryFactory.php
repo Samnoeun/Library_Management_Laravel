@@ -2,22 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Library;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Library>
- */
 class LibraryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Library::class;
+
+    public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company,
+            'location' => $this->faker->city,
         ];
     }
 }
