@@ -6,12 +6,14 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 
-class Category extends Seeder
+class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Category::create(['name' => 'Technology']);
-        Category::create(['name' => 'History']);
-        Category::create(['name' => 'Science']);
+        Category::insert([
+            ['name' => 'Science'],
+            ['name' => 'Technology'],
+            ['name' => 'History'],
+        ]);
     }
 }

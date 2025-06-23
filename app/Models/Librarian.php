@@ -5,23 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Librarian extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
-
-    public function books()
-    {
-        return $this->hasMany(Book::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function library()
+    public function borrows()
     {
-        return $this->belongsTo(Library::class);
+        return $this->hasMany(Borrow::class);
     }
 }
