@@ -9,7 +9,6 @@ class LibrarySeeder extends Seeder
 {
     public function run(): void
     {
-        Library::create(['name' => 'Central Library', 'location' => 'Phnom Penh']);
-        Library::create(['name' => 'City Library', 'location' => 'Battambang']);
+        Library::factory()->count(2)->create();
     }
 }

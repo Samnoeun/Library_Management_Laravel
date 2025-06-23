@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 
@@ -10,10 +9,6 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Category::insert([
-            ['name' => 'Science'],
-            ['name' => 'Technology'],
-            ['name' => 'History'],
-        ]);
+        Category::factory()->count(2)->create();
     }
 }
