@@ -14,12 +14,17 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(3),
-            'author' => $this->faker->name,
-            'library_id' => Library::inRandomOrder()->first()?->id ?? 1,
-            'category_id' => Category::inRandomOrder()->first()?->id ?? 1,
+            'title' => $this->faker->sentence(),
+            'author' => $this->faker->name(),
+            'library_id' => Library::factory(),
+            'category_id' => Category::factory(),
             'published_at' => $this->faker->date(),
             'status' => $this->faker->randomElement(['available', 'borrowed']),
         ];
     }
 }
+
+
+
+
+

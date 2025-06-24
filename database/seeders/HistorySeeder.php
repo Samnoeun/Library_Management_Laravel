@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Library;
+use App\Models\History;
 
-class LibrarySeeder extends Seeder
+class HistorySeeder extends Seeder
 {
     public function run(): void
     {
-        Library::factory()->count(2)->create();
+        History::factory(10)->create();
     }
 }

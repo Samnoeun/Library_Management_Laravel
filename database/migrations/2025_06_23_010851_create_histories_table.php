@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('action');
+            $table->foreignId('member_id')->constrained()->onDelete('cascade'); // <-- REQUIRED!
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
+            $table->string('action'); // e.g., 'borrowed', 'returned'
+            $table->date('action_date');
             $table->timestamps();
         });
     }

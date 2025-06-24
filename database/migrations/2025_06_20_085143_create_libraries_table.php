@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('location');
+            $table->string('name');      // This must exist
+            $table->string('location');  // And this too
             $table->timestamps();
         });
     }

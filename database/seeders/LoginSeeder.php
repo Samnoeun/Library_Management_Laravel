@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Library;
+use App\Models\Login;
 
-class LibrarySeeder extends Seeder
+class LoginSeeder extends Seeder
 {
     public function run(): void
     {
-        Library::factory()->count(2)->create();
+        Login::factory(10)->create();
     }
 }

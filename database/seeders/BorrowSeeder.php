@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Library;
+use App\Models\Borrow;
 
-class LibrarySeeder extends Seeder
+class BorrowSeeder extends Seeder
 {
     public function run(): void
     {
-        Library::factory()->count(2)->create();
+        Borrow::factory(10)->create();
     }
 }

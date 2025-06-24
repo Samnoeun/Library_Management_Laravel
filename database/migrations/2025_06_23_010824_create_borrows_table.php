@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('librarians', function (Blueprint $table) {
+        Schema::create('borrows', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('member_id')->constrained()->onDelete('cascade');
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
+            $table->date('borrow_date');
+            $table->date('return_date');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('librarians');
+        Schema::dropIfExists('borrow');
     }
 };

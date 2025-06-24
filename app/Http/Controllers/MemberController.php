@@ -9,21 +9,21 @@ class MemberController extends Controller
 {
     public function index()
     {
-        return response()->json(Member::all());
+        return response()->json(Member::with('user', 'library')->get());
     }
 
     public function store(Request $request)
     {
         $member = Member::create($request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email'
+            'user_id' => 'required|exists:users,id',
+            'library_id' => 'required|exists:libraries,id',
         ]));
         return response()->json($member, 201);
     }
 
     public function show($id)
     {
-        $member = Member::findOrFail($id);
+        $member = Member::with('user', 'library')->findOrFail($id);
         return response()->json($member);
     }
 
@@ -31,8 +31,8 @@ class MemberController extends Controller
     {
         $member = Member::findOrFail($id);
         $member->update($request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email,' . $id
+            'user_id' => 'required|exists:users,id',
+            'library_id' => 'required|exists:libraries,id',
         ]));
         return response()->json($member);
     }
