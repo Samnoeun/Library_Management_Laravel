@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
-    public function book()
-    {
-        return $this->belongsTo(Book::class);
-    }
+
+    protected $fillable = ['book_id', 'member_id'];
 
     public function member()
     {
         return $this->belongsTo(Member::class);
+    }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
     }
 }
